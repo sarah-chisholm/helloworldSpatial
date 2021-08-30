@@ -195,7 +195,7 @@
 
 		<!--Charts Layout-->
 		<layout name="corestimeforms_Charts" configurationSheet="RunControl">
-			<item name="y" displayName="y" dataSheet="OutputDatasheet" column="y"/>
+			<item name="y" displayName="y" dataSheet="IntermediateDatasheet" column="y"/>
 			<item
 				name="yCum"
 				displayName="Cumulative y"
