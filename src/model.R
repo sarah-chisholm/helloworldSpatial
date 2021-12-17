@@ -2,8 +2,9 @@ library(rsyncrosim)      # Load SyncroSim R package
 library(raster)          # Load raster package
 myScenario <- scenario()  # Get the SyncroSim scenario that is currently running
 
-# Create temporary folder for storing rasters
-tempFolderPath <- envTempFolder("OutputExportMap")
+# Retrieve the transfer directory for storing output rasters
+e <- ssimEnvironment()
+transferDir <- e$TransferDirectory
 
 # Load RunControl datasheet to be able to set timesteps
 runSettings <- datasheet(myScenario, name = "helloworldSpatial_RunControl")
@@ -44,7 +45,7 @@ for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
   y <- cellStats(newRasterMaps, stat = 'sum')
   
   # Add the new raster for this timestep/iteration to the output
-  newRasterNames <- file.path(paste0(tempFolderPath, 
+  newRasterNames <- file.path(paste0(transferDir, 
                                      "/rasterMap_iter", iter, "_ts",
                                      timesteps, ".tif"))
   writeRaster(newRasterMaps, filename = newRasterNames,
