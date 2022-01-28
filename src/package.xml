@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldSpatial" displayName="Example demonstrating how to use spatial data" version="1.0.2" url="https://apexrms.github.io/helloworldEnhanced/">
+<package name="helloworldSpatial" displayName="Example demonstrating how to use spatial data" version="1.0.3" url="https://apexrms.github.io/helloworldEnhanced/">
 	<transformers>
 
 		<!--Primary Transformer-->
@@ -145,8 +145,7 @@
 			isRunnable="True"
 			programName="Rscript"
 			programArguments="model.R"
-			configurationSheet="RunControl"
-			condaEnv="rsyncrosim.yml">
+			configurationSheet="RunControl">
 			<pipeline>
 				<datafeed name="RunControl" type="Input"/>
 				<datafeed name="InputDatafeed" type="Input"/>
@@ -161,8 +160,7 @@
 			isRunnable="True"
 			programName="Rscript"
 			programArguments="model2.R"
-			configurationSheet="RunControl"
-			condaEnv="rsyncrosim.yml">
+			configurationSheet="RunControl">
 			<pipeline>
 				<datafeed name="RunControl" type="Input"/>
 				<datafeed name="IntermediateDatafeed" type="Input"/>
