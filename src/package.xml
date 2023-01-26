@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldSpatial" displayName="Example demonstrating how to use spatial data" version="1.0.4" url="https://apexrms.github.io/helloworldEnhanced/">
+<package name="helloworldSpatial" displayName="Example demonstrating how to use spatial data" version="1.0.5" url="https://apexrms.github.io/helloworldEnhanced/">
 	<transformers>
 
 		<!--Primary Transformer-->
