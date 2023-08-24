@@ -1,5 +1,5 @@
 library(rsyncrosim)      # Load SyncroSim R package
-library(raster)          # Load raster package
+library(terra)           # Load terra package
 myScenario <- scenario()  # Get the SyncroSim scenario that is currently running
 
 # Retrieve the transfer directory for storing output rasters
@@ -21,9 +21,9 @@ mMean <- myInputDataframe$mMean
 mSD <- myInputDataframe$mSD
 
 # Load raster input 
-rasterMap <- datasheetRaster(myScenario,
-                             datasheet = "helloworldSpatial_InputDatasheet",
-                             column = "InterceptRasterFile")
+rasterMap <- datasheetSpatRaster(myScenario,
+                                 datasheet = "helloworldSpatial_InputDatasheet",
+                                 column = "InterceptRasterFile")
 
 # Setup empty R dataframe ready to accept output in SyncroSim datasheet format
 myOutputDataframe <- datasheet(
@@ -38,18 +38,21 @@ for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
   m <- rnorm(n = 1, mean = mMean, sd = mSD)
   
   # Use each cell in the raster as the intercept in linear equation
-  newRasterMaps <- calc(rasterMap, function(b) m * timesteps + b,
-                        forceapply = TRUE)
+  rastList <- c()
+  for (t in timesteps){
+    tempRasterMap <- app(rasterMap, function(b) m * t + b)
+    rastList <- c(rastList, tempRasterMap)
+  }
+  newRasterMaps <- terra::rast(rastList)
   
   # The y value will be the sum of all the cells in each raster
-  y <- cellStats(newRasterMaps, stat = 'sum')
+  y <- global(newRasterMaps, "sum")$sum
   
   # Add the new raster for this timestep/iteration to the output
   newRasterNames <- file.path(paste0(transferDir, 
                                      "/rasterMap_iter", iter, "_ts",
                                      timesteps, ".tif"))
-  writeRaster(newRasterMaps, filename = newRasterNames,
-              format = "GTiff", overwrite = TRUE, bylayer = TRUE)
+  writeRaster(newRasterMaps, filename = newRasterNames, overwrite = TRUE)
   
   # Store the relevant outputs in a temporary dataframe
   tempDataframe <- data.frame(Iteration = iter,
