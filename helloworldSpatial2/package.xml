@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package name="helloworldSpatial2" displayName="Hello World Spatial 2" displayName="Example demonstrating how to use spatial data" version="1.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
+
+	<requiresPackage name="helloworldPipeline1"/>
+
+	<dataSheet name="OutputDatasheet" displayName="Outputs" hasIteration="True" hasTimestep="True">
+		<column name="yCum" dataType="Double" displayName="Cumulative y"/>
+	</dataSheet>
+
+	<transformer name="Main" displayName="Hello World Spatial Step 2" programName="Rscript" programArguments="model2.R">
+		<dataSheet name="helloworldSpatial1_RunControl" type="Input"/>
+		<dataSheet name="helloworldSpatial1_IntermediateDatasheet" type="Input"/>
+		<dataSheet name="OutputDatasheet" type="Output"/>
+	</transformer>
+
+	<layout type="Scenario">
+		<item name="helloworldSpatial1_RunControl"/>
+		<item name="helloworldSpatial1_IntermediateDatasheet"/>
+		<item name="OutputDatasheet"/>
+	</layout>
+
+	<layout type="Chart">
+		<item name="yCum" displayName="Cumulative y" dataSheet="OutputDatasheet" column="yCum"/>
+	</layout>
+
+</package>

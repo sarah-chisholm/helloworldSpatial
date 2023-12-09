@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package name="helloworldSpatial1" displayName="Hello World Spatial 1" description="Example demonstrating how to use spatial data" version="1.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
+
+	<dataSheet name="RunControl" displayName="Run Control" isRunControl="True" timestepTitle="Timestep" showMinIteration="False">
+	</dataSheet>
+
+	<dataSheet name="InputDatasheet" isSingleRow="True">
+		<column name="mMean" dataType="Double" displayName="Slope Distribution Mean"/>
+		<column name="mSD" dataType="Double" displayName="Slope Distribution Standard Deviation"/>
+		<column name="InterceptRasterFile" displayName="Intercept Raster File" dataType="String" isExternalFile="True" isRaster="True"/>
+	</dataSheet>
+
+	<dataSheet name="IntermediateDatasheet" hasIteration="True" hasTimestep="True">
+		<column name="y" dataType="Double" displayName="Value for y"/>	
+		<column name="OutputRasterFile" displayName="Output Raster File" dataType="String" isExternalFile="True" isRaster="True" bandColumn="Band"/>
+		<column name="Band" displayName="Band" dataType="Integer" allowDbNull="True" isOptional="True"/>
+	</dataSheet>
+
+
+	<transformer name="Main" displayName="Hello World Spatial Step 1" programName="Rscript" programArguments="model.R">
+		<dataSheet name="RunControl" type="Input"/>
+		<dataSheet name="InputDatasheet" type="Input"/>
+		<dataSheet name="IntermediateDatasheet" type="Output"/>
+	</transformer>
+
+	<layout type="Scenario">
+		<item name="RunControl"/>
+		<item name="InputDatasheet"/>
+		<item name="IntermediateDatasheet"/>
+	</layout>
+
+	<layout type="Chart">
+		<item name="y" displayName="y" dataSheet="IntermediateDatasheet" column="y"/>
+	</layout>
+
+	<layout type="Map">
+		<item name="RasterMap" displayName="Output Raster Map" dataSheet="IntermediateDatasheet" column="OutputRasterFile"/>
+	</layout>
+
+</package>
