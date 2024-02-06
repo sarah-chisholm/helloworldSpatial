@@ -12,7 +12,7 @@
 
 	<dataSheet name="IntermediateDatasheet" hasIteration="True" hasTimestep="True">
 		<column name="y" dataType="Double" displayName="Value for y"/>	
-		<column name="OutputRasterFile" displayName="Output Raster File" dataType="String" isExternalFile="True" isRaster="True" bandColumn="Band"/>
+		<column name="OutputRasterFile" displayName="Output Raster File" dataType="String" isExternalFile="True" isRaster="True" bandColumn="Band" filenameCode="hw"/>
 		<column name="Band" displayName="Band" dataType="Integer" allowDbNull="True" isOptional="True"/>
 	</dataSheet>
 
@@ -33,7 +33,7 @@
 		<item name="y" displayName="y" dataSheet="IntermediateDatasheet" column="y"/>
 	</layout>
 
-	<layout type="Map">
+	<layout type="Plot">
 		<item name="RasterMap" displayName="Output Raster Map" dataSheet="IntermediateDatasheet" column="OutputRasterFile"/>
 	</layout>
 

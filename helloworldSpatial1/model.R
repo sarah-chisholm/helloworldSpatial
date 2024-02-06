@@ -31,6 +31,12 @@ myOutputDataframe <- datasheet(
   name = "helloworldSpatial1_IntermediateDatasheet"
 )
 
+# Setup empty R dataframe ready to accept output in SyncroSim datasheet format
+myOutputDataframe <- data.frame(Iteration = numeric(0), 
+                                Timestep = numeric(0), 
+                                y = numeric(0),
+                                OutputRasterFile = character(0))
+
 # For loop through iterations
 for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
   
@@ -50,7 +56,7 @@ for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
   
   # Add the new raster for this timestep/iteration to the output
   newRasterNames <- file.path(paste0(transferDir, 
-                                     "/rasterMap_iter", iter, "_ts",
+                                     "/hw.it", iter, ".ts",
                                      timesteps, ".tif"))
   writeRaster(newRasterMaps, filename = newRasterNames, overwrite = TRUE)
   
