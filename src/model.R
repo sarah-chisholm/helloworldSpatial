@@ -7,7 +7,8 @@ e <- ssimEnvironment()
 transferDir <- e$TransferDirectory
 
 # Load RunControl datasheet to be able to set timesteps
-runSettings <- datasheet(myScenario, name = "helloworldSpatial_RunControl")
+runSettings <- datasheet(myScenario, name = "helloworldSpatial_RunControl",
+                         returnInvisible = TRUE)
 
 # Set timesteps - can set to different frequencies if desired
 timesteps <- seq(runSettings$MinimumTimestep, runSettings$MaximumTimestep)
