@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldSpatial1" displayName="Hello World Spatial 1" description="Example demonstrating how to use spatial data" version="1.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
+<package name="helloworldSpatial1" displayName="Hello World Spatial 1" description="Example demonstrating how to use spatial data" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
 
 	<dataSheet name="RunControl" displayName="Run Control" isRunControl="True" timestepTitle="Timestep" showMinIteration="False">
 	</dataSheet>
@@ -33,7 +33,7 @@
 		<item name="y" displayName="y" dataSheet="IntermediateDatasheet" column="y"/>
 	</layout>
 
-	<layout type="Plot">
+	<layout type="Map">
 		<item name="RasterMap" displayName="Output Raster Map" dataSheet="IntermediateDatasheet" column="OutputRasterFile"/>
 	</layout>
 

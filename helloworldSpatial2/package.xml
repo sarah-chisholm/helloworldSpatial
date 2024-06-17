@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldSpatial2" displayName="Hello World Spatial 2" description="Example demonstrating how to use spatial data" version="1.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
+<package name="helloworldSpatial2" displayName="Hello World Spatial 2" description="Example demonstrating how to use spatial data" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
 
-	<requiresPackage name="helloworldSpatial1"/>
+	<builtFor package="helloworldSpatial1" version="2.0.0"/>
 
 	<dataSheet name="OutputDatasheet" displayName="Outputs" hasIteration="True" hasTimestep="True">
 		<column name="yCum" dataType="Double" displayName="Cumulative y"/>
