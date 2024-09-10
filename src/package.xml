@@ -36,8 +36,8 @@
 
 	<!--Second Transformer-->
 	<transformer name="secondModel" displayName="Second Model" programName="Rscript" programArguments="model2.R">
-		<dataSheet name="helloworldSpatial1_RunControl" type="Input"/>
-		<dataSheet name="helloworldSpatial1_IntermediateDatasheet" type="Input"/>
+		<dataSheet name="RunControl" type="Input"/>
+		<dataSheet name="IntermediateDatasheet" type="Input"/>
 		<dataSheet name="OutputDatasheet" type="Output"/>
 	</transformer>
 

@@ -7,7 +7,7 @@ e <- ssimEnvironment()
 transferDir <- e$TransferDirectory
 
 # Load RunControl datasheet to be able to set timesteps
-runSettings <- datasheet(myScenario, name = "helloworldSpatial_RunControl")
+runSettings <- datasheet(myScenario, name = "helloworldSpatial_RunControl", returnInvisible = TRUE)
 
 # Set timesteps - can set to different frequencies if desired
 timesteps <- seq(runSettings$MinimumTimestep, runSettings$MaximumTimestep)
@@ -26,10 +26,10 @@ rasterMap <- datasheetSpatRaster(myScenario,
                                  column = "InterceptRasterFile")
 
 # Setup empty R dataframe ready to accept output in SyncroSim datasheet format
-myOutputDataframe <- datasheet(
-  myScenario,
-  name = "helloworldSpatial_IntermediateDatasheet"
-)
+myOutputDataframe <- data.frame(Iteration = numeric(0), 
+                                Timestep = numeric(0), 
+                                y = numeric(0),
+                                OutputRasterFile = character(0))
 
 # For loop through iterations
 for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
