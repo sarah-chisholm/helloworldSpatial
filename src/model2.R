@@ -1,8 +1,9 @@
-library(rsyncrosim)      # Load SyncroSim R package
+library(rsyncrosim)       # Load SyncroSim R package
 myScenario <- scenario()  # Get the SyncroSim scenario that is currently running
 
 # Load RunControl datasheet to be able to set timesteps
-runSettings <- datasheet(myScenario, name = "helloworldSpatial_RunControl", returnInvisible = TRUE)
+runSettings <- datasheet(myScenario, name = "helloworldSpatial_RunControl",
+                         returnInvisible = TRUE)
 
 # Set timesteps - can set to different frequencies if desired
 timesteps <- seq(runSettings$MinimumTimestep, runSettings$MaximumTimestep)
