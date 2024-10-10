@@ -13,8 +13,9 @@ myInputDataframe <- datasheet(myScenario,
                               name = "helloworldSpatial_IntermediateDatasheet")
 
 # Setup empty R dataframe ready to accept output in SyncroSim datasheet format
-myOutputDataframe <- datasheet(myScenario,
-                               name = "helloworldSpatial_OutputDatasheet")
+myOutputDataframe <- data.frame(Iteration = numeric(0),
+                                Timestep = numeric(0),
+                                yCum = numeric(0))
 
 # For loop through iterations
 for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {

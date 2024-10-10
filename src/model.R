@@ -27,10 +27,10 @@ rasterMap <- datasheetSpatRaster(myScenario,
                                  column = "InterceptRasterFile")
 
 # Setup empty R dataframe ready to accept output in SyncroSim datasheet format
-myOutputDataframe <- datasheet(
-  myScenario,
-  name = "helloworldSpatial_IntermediateDatasheet"
-)
+myOutputDataframe <- data.frame(Iteration = numeric(0), 
+                                Timestep = numeric(0), 
+                                y = numeric(0),
+                                OutputRasterFile = character(0))
 
 # For loop through iterations
 for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
