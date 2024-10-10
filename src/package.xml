@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldSpatial" displayName="Hello World Spatial (R)" description="Example demonstrating how to use spatial data" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
-
-	<!--Scenario Datasheets-->
+<package name="helloworldSpatial" displayName="Hello World Spatial (R)" description="Example demonstrating how to use spatial data with an R model" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
 
 	<!--Run Control-->
 	<dataSheet name="RunControl" displayName="Run Control" isRunControl="True" timestepTitle="Timestep" showMinIteration="False"></dataSheet>
@@ -25,23 +23,19 @@
 		<column name="yCum" dataType="Double" displayName="Cumulative y"/>
 	</dataSheet>
 
-	<!--Transformers-->
-
 	<!--First Transformer-->
-	<transformer name="firstModel" displayName="First Model" programName="Rscript" programArguments="model.R">
+	<transformer name="firstModel" displayName="Hello World Spatial 1" programName="Rscript" programArguments="model.R">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="InputDatasheet" type="Input"/>
 		<dataSheet name="IntermediateDatasheet" type="Output"/>
 	</transformer>
 
 	<!--Second Transformer-->
-	<transformer name="secondModel" displayName="Second Model" programName="Rscript" programArguments="model2.R">
+	<transformer name="secondModel" displayName="Hello World Spatial 2" programName="Rscript" programArguments="model2.R">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="IntermediateDatasheet" type="Input"/>
 		<dataSheet name="OutputDatasheet" type="Output"/>
 	</transformer>
-
-	<!--Layouts-->
 
 	<!--Scenario Datafeeds Layout-->
 	<layout type="Scenario">
@@ -57,6 +51,7 @@
 		<item name="yCum" displayName="Cumulative y" dataSheet="OutputDatasheet" column="yCum"/>
 	</layout>
 
+	<!--Maps Layout-->
 	<layout type="Map">
 		<item name="RasterMap" displayName="Output Raster Map" dataSheet="IntermediateDatasheet" column="OutputRasterFile"/>
 	</layout>
