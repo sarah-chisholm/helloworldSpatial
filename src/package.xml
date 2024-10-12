@@ -5,14 +5,14 @@
 	<dataSheet name="RunControl" displayName="Run Control" isRunControl="True" timestepTitle="Timestep" showMinIteration="False"></dataSheet>
 
 	<!--First Model Inputs-->
-	<dataSheet name="InputDatasheet" isSingleRow="True">
+	<dataSheet name="InputDatasheet" displayName="Inputs" isSingleRow="True">
 		<column name="mMean" dataType="Double" displayName="Slope Distribution Mean"/>
 		<column name="mSD" dataType="Double" displayName="Slope Distribution Standard Deviation"/>
 		<column name="InterceptRasterFile" displayName="Intercept Raster File" dataType="String" isExternalFile="True" isRaster="True"/>
 	</dataSheet>
 
 	<!--First Model Outputs / Second Model Inputs-->
-	<dataSheet name="IntermediateDatasheet" hasIteration="True" hasTimestep="True">
+	<dataSheet name="IntermediateDatasheet" displayName="Intermediate Outputs" hasIteration="True" hasTimestep="True">
 		<column name="y" dataType="Double" displayName="Value for y"/>
 		<column name="OutputRasterFile" displayName="Output Raster File" dataType="String" isExternalFile="True" isRaster="True" bandColumn="Band" filenameCode="hw"/>
 		<column name="Band" displayName="Band" dataType="Integer" allowDbNull="True" isOptional="True"/>
