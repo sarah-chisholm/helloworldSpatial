@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldSpatial" displayName="Hello World Spatial (R)" description="Example demonstrating how to use spatial data" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
+<package name="helloworldSpatial" displayName="Hello World Spatial (R)" description="Example demonstrating how to use spatial data with an R model" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
 
 	<!--Scenario Datasheets-->
 
@@ -7,14 +7,14 @@
 	<dataSheet name="RunControl" displayName="Run Control" isRunControl="True" timestepTitle="Timestep" showMinIteration="False"></dataSheet>
 
 	<!--First Model Inputs-->
-	<dataSheet name="InputDatasheet" isSingleRow="True">
+	<dataSheet name="InputDatasheet" displayName="Inputs" isSingleRow="True">
 		<column name="mMean" dataType="Double" displayName="Slope Distribution Mean"/>
 		<column name="mSD" dataType="Double" displayName="Slope Distribution Standard Deviation"/>
 		<column name="InterceptRasterFile" displayName="Intercept Raster File" dataType="String" isExternalFile="True" isRaster="True"/>
 	</dataSheet>
 
 	<!--First Model Outputs / Second Model Inputs-->
-	<dataSheet name="IntermediateDatasheet" hasIteration="True" hasTimestep="True">
+	<dataSheet name="IntermediateDatasheet" displayName="Intermediate Outputs" hasIteration="True" hasTimestep="True">
 		<column name="y" dataType="Double" displayName="Value for y"/>
 		<column name="OutputRasterFile" displayName="Output Raster File" dataType="String" isExternalFile="True" isRaster="True" bandColumn="Band" filenameCode="hw"/>
 		<column name="Band" displayName="Band" dataType="Integer" allowDbNull="True" isOptional="True"/>
@@ -28,14 +28,14 @@
 	<!--Transformers-->
 
 	<!--First Transformer-->
-	<transformer name="firstModel" displayName="First Model" programName="Rscript" programArguments="model.R">
+	<transformer name="firstModel" displayName="First Model" programArguments="model.R">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="InputDatasheet" type="Input"/>
 		<dataSheet name="IntermediateDatasheet" type="Output"/>
 	</transformer>
 
 	<!--Second Transformer-->
-	<transformer name="secondModel" displayName="Second Model" programName="Rscript" programArguments="model2.R">
+	<transformer name="secondModel" displayName="Second Model" programArguments="model2.R">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="IntermediateDatasheet" type="Input"/>
 		<dataSheet name="OutputDatasheet" type="Output"/>
