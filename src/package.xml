@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldSpatial" displayName="Hello World Spatial (R)" description="Example demonstrating how to use spatial data with an R model" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
+<package name="helloworldSpatial" displayName="Hello World Spatial (R)" description="Example demonstrating how to use spatial data with an R model" version="2.1.0" url="https://apexrms.github.io/helloworldEnhanced/" minSyncroSimVersion="3.1.0">
 
 	<!--Scenario Datasheets-->
 
@@ -26,14 +26,14 @@
 	</dataSheet>
 
 	<!--First Transformer-->
-	<transformer name="firstModel" displayName="Hello World Spatial 1 (R)" programArguments="model.R" condaEnv="helloworldR.yml" condaEnvVersion="1">
+	<transformer name="firstModel" displayName="Hello World Spatial 1 (R)" programArguments="model.R" condaEnv="helloworldR.yml" condaEnvVersion="2">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="InputDatasheet" type="Input"/>
 		<dataSheet name="IntermediateDatasheet" type="Output"/>
 	</transformer>
 
 	<!--Second Transformer-->
-	<transformer name="secondModel" displayName="Hello World Spatial 2 (R)" programArguments="model2.R" condaEnv="helloworldR.yml" condaEnvVersion="1">
+	<transformer name="secondModel" displayName="Hello World Spatial 2 (R)" programArguments="model2.R" condaEnv="helloworldR.yml" condaEnvVersion="2">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="IntermediateDatasheet" type="Input"/>
 		<dataSheet name="OutputDatasheet" type="Output"/>
